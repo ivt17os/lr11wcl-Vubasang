@@ -33,7 +33,10 @@ int main(int argc, char** argv ) {
 	}
 	QueryPerformanceCounter((LARGE_INTEGER *)&t2);// смотрим время после окончания цикла
 
-	cout << nlines<<" lines\n Time spent:" << (t2-t1)/(1.*freq);
+	cout.precision(3);
+	cout << fixed;
+	cout << "Time: " << (t2-t1)/(1.*freq) << endl;
+	cout << "File a.txt has " << nlines<<" lines." ;
 
 	return 0;
 }
