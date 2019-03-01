@@ -10,7 +10,7 @@
 using namespace std;
 
 int main(int argc, char** argv ) {
-    long long t1, t2, freq;
+    long long t1, t2, freq, nlines =0;
 	string str;
 	
 	//if (argc == 1) 
@@ -27,9 +27,13 @@ int main(int argc, char** argv ) {
 
 
 	QueryPerformanceCounter((LARGE_INTEGER *)&t1);// смотрим время после окончания цикла
-	getline(f, str);
+	while (!f.eof()){
+		getline(f, str);
+		nlines ++;
+	}
 	QueryPerformanceCounter((LARGE_INTEGER *)&t2);// смотрим время после окончания цикла
 
-	cout << str << "\n Time spent:" << (t2-t1)/(1.*freq);
+	cout << nlines<<" lines\n Time spent:" << (t2-t1)/(1.*freq);
+
 	return 0;
 }
